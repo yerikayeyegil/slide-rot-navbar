@@ -1,0 +1,311 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>NavBar1</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
+	<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+	<style>
+
+		*{
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+
+		}
+
+		html,body{
+			height: 100%;
+			overflow: hidden;
+			font-family: 'Alfa Slab One', cursive;
+
+		}
+
+		.page{
+			height: 100%;
+			background-color: black;
+
+		}
+		
+		.content{
+			height: 200%;
+			background-color: #f0f0f0;
+			transform-origin: top left;
+			transition: transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
+			
+
+
+		}
+
+		.content_inner{
+			height: 50%;
+			overflow-y: auto;
+			padding: 50px 20%;
+
+		}
+
+		p{
+			text-align: center;
+		}
+
+		.menu_toggle{
+			z-index: 900;
+			position: fixed;
+			top: 0;
+			left: 0;
+			display: block;
+			cursor: pointer;
+			width: 100px;
+			height: 80px;
+			background-color: lightgreen;
+			border-bottom-right-radius: 100%;
+		}
+
+		.menu_toggle:active i{
+			opacity: 0.8;
+		}
+
+		.menu_toggle i {
+			color: #f0f0f0;
+
+		}
+
+		.menu_toggle .menu_open, .menu_toggle .menu_close{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -15px;
+			margin-left: -12px;
+			transition: transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
+
+		}
+
+		.menu_toggle .menu_open {
+		  transform-origin: -100px -100px;
+		
+		}
+
+		.menu_toggle .menu_close {
+
+		  transform: rotate(20deg);
+
+ 
+ 		 transform-origin: -100px -160px;
+
+		}
+
+
+		.menu_items{
+
+			position: fixed;
+			bottom: 0;
+			left: 50px;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+		}
+
+		.menu_items li{
+			height: 60px;
+			margin-bottom: 30px;
+			transform: translateX(-300px);
+			transition: transform 0.7s 0s cubic-bezier(1,0.005,0.24,1);
+
+		}
+
+		.menu_items li:nth-child(2){
+			margin-left: 40px;
+
+		}
+		.menu_items li:nth-child(3){
+			margin-left: 80px;
+
+		}
+
+		.menu_items a {
+			display: block;
+			text-decoration: none;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			color: #a3a3a3;
+			transition: color 0.2s;
+
+		}
+		.menu_items a .icon{
+			position: relative;
+			display: inline-block;
+			margin-right: 25px;
+			color: lightgreen;
+		}
+	
+			
+		
+		
+
+		.menu_items a .icon:after{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			content: "";
+			display: block;
+			width: 60px;
+			height: 60px;
+			margin-left: -33px;
+			margin-top: -32px;
+			border-radius: 100%;
+			border: 2px solid lightgreen;
+			transition: border-color 0.2s;
+			border-color: lightgreen;
+			
+		}
+
+		.menu_items a :hover{
+			color: #f0f0f0;
+
+		}
+
+		.menu_items a :hover .icon:after{
+			border-color: #f37272;
+		}
+
+		.menu_items a:active .icon{
+			color: #f37272;
+		}
+
+		.real .content {
+			transform: rotate(-30deg);
+		}
+
+		.real .menu_open{
+			transform: rotate(-20deg);
+
+		}
+
+		.real .menu_close{
+			transform: rotate(0);
+
+		}
+
+
+		.real .menu_items li{
+			transform: translateX(0);
+			transition: transform 0.35s 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		}
+
+		.real .menu_items li:nth-child(2){
+			transition-delay: 0.47s;
+
+		}
+		.real .menu_items li:nth-child(3){
+			transition-delay: 0.48s;
+		}
+
+		h1{
+			padding-bottom: 15px;
+			border-bottom: 1px solid #ddd;
+			text-align: center;
+
+
+		}
+		body{
+			color:#584e4a;
+		}
+
+		.social{
+			text-align: center;
+		}
+
+		.social i {
+			font-size: 20px;
+			background-color: lightgreen;
+			width: 40px;
+			line-height: 40px;
+			text-align: center;
+			color: white;
+			border-radius: 50px;
+		}
+
+
+
+
+	</style>
+</head>
+<body>
+	<div class="page">
+		<span class="menu_toggle">
+			<i class="menu_open fa fa-bars fa-lg"></i>
+			<i class="menu_close fa fa-times fa-lg"></i>
+		</span>
+
+		<ul class="menu_items">
+			<li><a href=""><i class="icon fa fa-home fa-2x"></i>
+			Home</a>
+			</li>
+			<li><a href=""><i class="icon fa fa-phone fa-2x "></i>
+			Phone</a>
+			</li>
+			<li><a href=""><i class="icon fa fa-heart fa-2x"></i>
+			Contact</a>
+			</li>
+		</ul>
+
+		<main class="content">
+			<div class="content_inner">
+				<h1>Yeye NavBar</h1>
+
+				<br><br><br>
+
+				<div class="social">
+					<i class="fab fa-facebook-f"></i>
+					<i class="fab fa-twitter"></i>
+					<i class="fab fa-linkedin"></i>
+					<i class="fab fa-instagram"></i>
+					<i class="fab fa-youtube"></i>
+				</div>
+
+				<br><br>
+
+				
+				<p>Do <strong>not</strong> Push</p>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos totam mollitia neque architecto, esse porro expedita et nostrum dolorem nisi! Repellat dolor provident, accusamus recusandae nemo obcaecati quod quaerat facilis.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quas sequi voluptatem neque. Molestiae, beatae, ut. Voluptate praesentium quasi quos obcaecati libero, non exercitationem at quo ab laboriosam fugit, eius consectetur ut harum ipsa doloremque delectus dolor odio expedita voluptates natus, amet. Incidunt magnam dicta dolore reiciendis cupiditate consectetur cum, sed quod voluptatibus distinctio maiores, eum, animi dolorem nulla. Deserunt eum consequuntur blanditiis eaque perferendis doloribus mollitia accusamus quod et. Cum corporis ab rerum dicta dolore possimus, asperiores ducimus numquam voluptatum, quis maxime aut laboriosam pariatur voluptatem? Et maiores laudantium inventore, cumque dolor ipsum debitis ducimus repellat commodi esse. Vero?</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos est libero ratione beatae veritatis vitae mollitia expedita sunt, consectetur corrupti iste unde adipisci nesciunt tenetur maxime, in, modi. Nostrum provident neque porro quo rem corporis illum, ratione doloremque consequatur ea accusamus, illo veritatis voluptate aperiam necessitatibus sunt iusto fugiat, debitis!</p>
+
+			</div>
+
+
+		</main>
+		<footer>
+			<div class="social">
+					<i class="fab fa-facebook-f"></i>
+					<i class="fab fa-twitter"></i>
+					<i class="fab fa-linkedin"></i>
+					<i class="fab fa-instagram"></i>
+					<i class="fab fa-youtube"></i>
+				</div>
+
+				<br><br>
+		</footer>
+	</div>
+
+
+</body>
+
+<script >
+	var $page = $(".page");
+
+	$(".menu_toggle").on ("click",function(){
+		$page.toggleClass("real");
+
+	});
+
+	$(".content").on ("click",function(){
+		$page.removeClass("real");
+
+	});
+</script>
+	
+</html>
